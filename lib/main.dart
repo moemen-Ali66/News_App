@@ -6,6 +6,7 @@ import 'package:news_app/moduels/business/business_screen.dart';
 import 'home_layout/home_layout.dart';
 
 void main() {
+
   runApp(const MyApp());
 }
 
