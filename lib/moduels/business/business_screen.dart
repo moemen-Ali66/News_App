@@ -1,5 +1,11 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/network/remote/dio_helpers.dart';
+import 'package:news_app/shared/component/components.dart';
+import 'package:news_app/shared/cubit/cubit.dart';
+import 'package:news_app/shared/cubit/states.dart';
 
 class BusinessScrren extends StatelessWidget {
   const BusinessScrren({Key? key}) : super(key: key);
@@ -7,11 +13,18 @@ class BusinessScrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Row(
-        children: [
-
-          ],
+      appBar: AppBar(
+        title: Text('NewsApp'),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.search))
+        ],
+      ),
+      body:BlocConsumer<NewsCubit,NewsStates>(
+        listener: (context,state)=>{},
+        builder: (context,state)=> ConditionalBuilder(
+          condition: State !is NewsgetBusinessLoadingStates,
+          builder:(context)=>buildItem() ,
+          fallback:(context)=>Center(child: CircularProgressIndicator(backgroundColor: Colors.deepOrange,)) ,),
       ),
     );
   }

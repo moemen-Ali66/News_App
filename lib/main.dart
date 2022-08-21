@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:news_app/moduels/business/business_screen.dart';
 import 'package:news_app/network/remote/dio_helpers.dart';
-
 import 'home_layout/home_layout.dart';
 
 void main() {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           type:BottomNavigationBarType.fixed ,
           selectedItemColor: Colors.deepOrange,
         )),
-      home: home_layout(),
+      home: BusinessScrren(),
     );
 
   }
