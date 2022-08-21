@@ -15,7 +15,7 @@ class NewsCubit extends Cubit<NewsStates>{
    BusinessScrren(),
    SportsScrren(),
    ScienceScrren(),
-    SettingScrren(),
+   SettingScrren(),
  ];
   List<BottomNavigationBarItem>bottomItem=[
     BottomNavigationBarItem(icon:Icon(Icons.business),label:'Business',),

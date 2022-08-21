@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news_app/moduels/business/business_screen.dart';
+import 'package:news_app/network/remote/dio_helpers.dart';
 
 import 'home_layout/home_layout.dart';
 
 void main() {
-
+DioHelper.init();
   runApp(const MyApp());
 }
 
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: Colors.white,
           elevation: 0.0,
           titleTextStyle:TextStyle(color: Colors.black,fontWeight:FontWeight.bold,fontSize: 20) ,

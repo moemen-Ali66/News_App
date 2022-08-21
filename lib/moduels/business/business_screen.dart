@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/network/remote/dio_helpers.dart';
 
 class BusinessScrren extends StatelessWidget {
   const BusinessScrren({Key? key}) : super(key: key);
@@ -6,11 +7,11 @@ class BusinessScrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:Text(''),
-      ),
-      body: Center(
-        child: Text('business screen',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+      appBar: AppBar(),
+      body: Row(
+        children: [
+
+          ],
       ),
     );
   }
