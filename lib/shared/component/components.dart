@@ -1,6 +1,9 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
-Widget buildItem()=> Padding(
+
+Widget buildItem(article)=> Padding(
   padding: const EdgeInsets.all(10.0),
   child: Row(
     children: [
@@ -10,7 +13,7 @@ Widget buildItem()=> Padding(
         decoration: BoxDecoration(
           borderRadius:BorderRadius.circular(20.0) ,
           image:DecorationImage(
-            image: NetworkImage("https://g.foolcdn.com/editorial/images/697217/man-in-specs-holding-a-smartphone.jpg"),
+            image: NetworkImage('${article['urlToImage']}'),
             fit:BoxFit.cover,
           ),
         ),),
@@ -23,17 +26,26 @@ Widget buildItem()=> Padding(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Text('title',
+                child: Text('${article['title']}',
                   style:
                   TextStyle(fontSize: 20,fontWeight: FontWeight.w700)
                   ,maxLines: 3,
                   overflow:TextOverflow.ellipsis,),
               ),
-              Text('2022-08-21T13:15:01Z',style: TextStyle(color: Colors.grey),)
+              Text('${article['publishedAt']}',style: TextStyle(color: Colors.grey),)
             ],
           ),
         ),
       ),
     ],
+  ),
+);
+Widget myDivider()=>Padding(
+  padding: const EdgeInsets.only(left: 10),
+  child:   Container(
+    width:double.infinity,
+    height: 1,
+    color: Colors.grey,
+
   ),
 );

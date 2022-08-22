@@ -21,10 +21,18 @@ class BusinessScrren extends StatelessWidget {
       ),
       body:BlocConsumer<NewsCubit,NewsStates>(
         listener: (context,state)=>{},
-        builder: (context,state)=> ConditionalBuilder(
-          condition: State !is NewsgetBusinessLoadingStates,
-          builder:(context)=>buildItem() ,
-          fallback:(context)=>Center(child: CircularProgressIndicator(backgroundColor: Colors.deepOrange,)) ,),
+        builder: (context,state) {
+         var list= NewsCubit.get(context).business;
+          return ConditionalBuilder(
+              condition: NewsCubit().curentindex==0,
+              builder:(context)=>ListView.separated(
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder:(context,index) =>buildItem(list[index]),
+                  separatorBuilder:(context,index) =>myDivider() ,
+                  itemCount: 10),
+              fallback:(context)=>Center(child: CircularProgressIndicator(backgroundColor: Colors.deepOrange,)),
+          );
+        },
       ),
     );
   }
