@@ -12,10 +12,10 @@ class NewsCubit extends Cubit<NewsStates>{
   static NewsCubit get(context) => BlocProvider.of(context);
  int curentindex=0;
   List<Widget> Screens =[
-   BusinessScrren(),
-   SportsScrren(),
-   ScienceScrren(),
-   SettingScrren(),
+   BusinessScreen(),
+   SportsScreen(),
+   ScienceScreen(),
+   SettingScreen(),
  ];
   List<BottomNavigationBarItem>bottomItem=[
     BottomNavigationBarItem(icon:Icon(Icons.business),label:'Business',),
