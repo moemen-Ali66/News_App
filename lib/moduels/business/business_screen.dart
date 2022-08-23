@@ -7,8 +7,8 @@ import 'package:news_app/shared/component/components.dart';
 import 'package:news_app/shared/cubit/cubit.dart';
 import 'package:news_app/shared/cubit/states.dart';
 
-class BusinessScrren extends StatelessWidget {
-  const BusinessScrren({Key? key}) : super(key: key);
+class BusinessScreen extends StatelessWidget {
+  const BusinessScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class BusinessScrren extends StatelessWidget {
           var cubit= NewsCubit.get(context);
          dynamic list= NewsCubit.get(context).business;
           return ConditionalBuilder(
-              condition: cubit.curentindex >0,
+              condition: cubit.curentindex==0,
               builder:(context)=>ListView.separated(
                   physics: BouncingScrollPhysics(),
                   itemBuilder:(context,index){
