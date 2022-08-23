@@ -13,23 +13,25 @@ class BusinessScrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('NewsApp'),
-        actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search))
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: Text('NewsApp'),
+      //   actions: [
+      //     IconButton(onPressed: (){}, icon: Icon(Icons.search))
+      //   ],
+      // ),
       body:BlocConsumer<NewsCubit,NewsStates>(
-        listener: (context,state)=>{},
-        builder: (context,state) {
-         var list= NewsCubit.get(context).business;
+        listener: (context,state){},
+        builder: (context,state){
+         dynamic list= NewsCubit.get(context).business;
           return ConditionalBuilder(
-              condition: NewsCubit().curentindex==0,
+              condition: list.length==0,
               builder:(context)=>ListView.separated(
                   physics: BouncingScrollPhysics(),
-                  itemBuilder:(context,index) =>buildItem(list[index]),
-                  separatorBuilder:(context,index) =>myDivider() ,
-                  itemCount: 10),
+                  itemBuilder:(context,index){
+                    return buildItem(list[index]);},
+                  separatorBuilder:(context,index) {
+                    return myDivider();} ,
+                  itemCount: list.length),
               fallback:(context)=>Center(child: CircularProgressIndicator(backgroundColor: Colors.deepOrange,)),
           );
         },

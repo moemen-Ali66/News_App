@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 
-Widget buildItem(article)=> Padding(
-  padding: const EdgeInsets.all(10.0),
+Widget buildItem(articles)=> Padding(
+  padding:  EdgeInsets.all(10.0),
   child: Row(
     children: [
       Container(
@@ -13,7 +13,7 @@ Widget buildItem(article)=> Padding(
         decoration: BoxDecoration(
           borderRadius:BorderRadius.circular(20.0) ,
           image:DecorationImage(
-            image: NetworkImage('${article['urlToImage']}'),
+            image: NetworkImage('${articles['urlToImage']}'),
             fit:BoxFit.cover,
           ),
         ),),
@@ -26,13 +26,13 @@ Widget buildItem(article)=> Padding(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Text('${article['title']}',
+                child: Text('${articles['title']}',
                   style:
                   TextStyle(fontSize: 20,fontWeight: FontWeight.w700)
                   ,maxLines: 3,
                   overflow:TextOverflow.ellipsis,),
               ),
-              Text('${article['publishedAt']}',style: TextStyle(color: Colors.grey),)
+              Text('${articles['publishedAt']}',style: TextStyle(color: Colors.grey),)
             ],
           ),
         ),

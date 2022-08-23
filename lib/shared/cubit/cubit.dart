@@ -34,12 +34,12 @@ class NewsCubit extends Cubit<NewsStates>{
     DioHelper.getData(
         url: 'v2/top-headlines',
         query: {
-          'country': 'eg',
+          'country': 'us',
           'category':'business',
-          'apiKey':'65f7f556ec76449fa7dc7c0069f040ca'
+          'apiKey':'API_KEY'
     }).then((value){
-      print(value.data["articles"][0]['title']);
-      business=value.data["articles"];
+    //  print(value.data["articles"][0]['title']);
+      business=value.data['articles'];
       emit(NewsgetBusinessSuccessStates());
     }).catchError((error){
       print(error.toString());

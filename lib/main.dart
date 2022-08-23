@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           type:BottomNavigationBarType.fixed ,
           selectedItemColor: Colors.deepOrange,
         )),
-      home: BusinessScrren(),
+      home: home_layout(),
     );
 
   }
