@@ -17,9 +17,9 @@ class ScienceScreen extends StatelessWidget {
         listener: (context,state){},
         builder: (context,state){
           var cubit= NewsCubit.get(context);
-          dynamic list= NewsCubit.get(context).business;
+          dynamic list= NewsCubit.get(context).Science;
           return ConditionalBuilder(
-            condition: cubit.curentindex==2,
+            condition: true,
             builder:(context)=>ListView.separated(
                 physics: BouncingScrollPhysics(),
                 itemBuilder:(context,index){

@@ -17,9 +17,9 @@ class SportsScreen extends StatelessWidget {
         listener: (context,state){},
         builder: (context,state){
           var cubit= NewsCubit.get(context);
-          dynamic list= NewsCubit.get(context).business;
+          dynamic list= NewsCubit.get(context).Sports;
           return ConditionalBuilder(
-            condition: cubit.curentindex==1,
+            condition: true,
             builder:(context)=>ListView.separated(
                 physics: BouncingScrollPhysics(),
                 itemBuilder:(context,index){

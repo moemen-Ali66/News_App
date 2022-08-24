@@ -53,5 +53,55 @@ class NewsCubit extends Cubit<NewsStates>{
       emit(NewsgetBusinessErrorStates());
     });
   }
+  List Sports=[];
+  void getSports()
+  {
+    emit(NewsgetSportsLoadingStates());
+
+    DioHelper.getData(
+      url: 'v2/top-headlines',
+      query:
+      {
+        'country':'eg',
+        'category':'sports',
+        'apiKey':'6420a625766848a8b5ebad345c636309',
+      },
+    ).then((value)
+    {
+      //print(value.data['articles'][0]['title']);
+      business = value.data['articles'];
+      print(business[0]['title']);
+
+      emit(NewsgetSportsSuccessStates());
+    }).catchError((error){
+      print(error.toString());
+      emit(NewsgetSportsErrorStates());
+    });
+  }
+  List Science=[];
+  void getScience()
+  {
+    emit(NewsgetScienceLoadingStates());
+
+    DioHelper.getData(
+      url: 'v2/top-headlines',
+      query:
+      {
+        'country':'eg',
+        'category':'science',
+        'apiKey':'839f8b514c5644f496f9a60b15c0951f',
+      },
+    ).then((value)
+    {
+      //print(value.data['articles'][0]['title']);
+      business = value.data['articles'];
+      print(business[0]['title']);
+
+      emit(NewsgetScienceSuccessStates());
+    }).catchError((error){
+      print(error.toString());
+      emit(NewsgetScienceErrorStates());
+    });
+  }
 
 }
