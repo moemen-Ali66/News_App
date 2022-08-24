@@ -9,7 +9,9 @@ Widget buildItem(articles)=> Padding(
         decoration: BoxDecoration(
           borderRadius:BorderRadius.circular(20.0) ,
           image:DecorationImage(
-            image: NetworkImage('${articles['urlToImage']}'),
+            image: NetworkImage('${articles['urlToImage']}',),onError: (context,exeption){
+              Image.asset('no-image-icon-15.png');
+          },
             fit:BoxFit.cover,
           ),
         ),),

@@ -29,21 +29,28 @@ class NewsCubit extends Cubit<NewsStates>{
   }
 
   List business=[];
-  void getbusiness(){
+  void getbusiness()
+  {
     emit(NewsgetBusinessLoadingStates());
+
     DioHelper.getData(
-        url: 'v2/top-headlines',
-        query: {
-          'country': 'us',
-          'category':'business',
-          'apiKey':'65f7f556ec76449fa7dc7c0069f040ca'
-    }).then((value){
-    //  print(value.data["articles"][0]['title']);
-      business=value.data['articles'];
+      url: 'v2/top-headlines',
+      query:
+      {
+        'country':'eg',
+        'category':'business',
+        'apiKey':'839f8b514c5644f496f9a60b15c0951f',
+      },
+    ).then((value)
+    {
+      //print(value.data['articles'][0]['title']);
+      business = value.data['articles'];
+      print(business[0]['title']);
+
       emit(NewsgetBusinessSuccessStates());
     }).catchError((error){
-      print('moooooooo${error.toString()}');
-    emit(NewsgetBusinessErrorStates());
+      print(error.toString());
+      emit(NewsgetBusinessErrorStates());
     });
   }
 

@@ -19,7 +19,7 @@ class BusinessScreen extends StatelessWidget {
           var cubit= NewsCubit.get(context);
          dynamic list= NewsCubit.get(context).business;
           return ConditionalBuilder(
-              condition: cubit.curentindex==0,
+              condition: true,
               builder:(context)=>ListView.separated(
                   physics: BouncingScrollPhysics(),
                   itemBuilder:(context,index){
