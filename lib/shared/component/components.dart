@@ -1,8 +1,4 @@
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
-
-
 Widget buildItem(articles)=> Padding(
   padding:  EdgeInsets.all(10.0),
   child: Row(
