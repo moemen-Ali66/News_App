@@ -23,7 +23,7 @@ class SportsScreen extends StatelessWidget {
             builder:(context)=>ListView.separated(
                 physics: BouncingScrollPhysics(),
                 itemBuilder:(context,index){
-                  return buildItem(list[index]);},
+                  return buildItem(list[index],context);},
                 separatorBuilder:(context,index) {
                   return myDivider();} ,
                 itemCount: list.length),

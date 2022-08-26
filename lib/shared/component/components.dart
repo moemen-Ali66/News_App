@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-Widget buildItem(articles)=> Padding(
+Widget buildItem(articles,context)=> Padding(
   padding:  EdgeInsets.all(10.0),
   child: Row(
     children: [
@@ -10,7 +10,7 @@ Widget buildItem(articles)=> Padding(
           borderRadius:BorderRadius.circular(20.0) ,
           image:DecorationImage(
             image: NetworkImage('${articles['urlToImage']}',),onError: (context,exeption){
-              Image.asset('no-image-icon-15.png');
+              Image.asset('images/no-image-icon-15.png');
           },
             fit:BoxFit.cover,
           ),
@@ -25,9 +25,8 @@ Widget buildItem(articles)=> Padding(
             children: [
               Expanded(
                 child: Text('${articles['title']}',
-                  style:
-                  TextStyle(fontSize: 20,fontWeight: FontWeight.w700)
-                  ,maxLines: 3,
+                  style:Theme.of(context).textTheme.bodyText1,
+                  maxLines: 3,
                   overflow:TextOverflow.ellipsis,),
               ),
               Text('${articles['publishedAt']}',style: TextStyle(color: Colors.grey),)

@@ -18,7 +18,8 @@ class home_layout extends StatelessWidget {
           appBar: AppBar(
             title: Text('NewsApp'),
             actions: [
-              IconButton(onPressed: (){}, icon: Icon(Icons.search))
+              IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+              IconButton(onPressed: (){}, icon: Icon(Icons.brightness_4_outlined)),
             ],
           ),
             body: cubit.Screens[cubit.curentindex],
