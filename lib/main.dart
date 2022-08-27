@@ -18,14 +18,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(
-        create: (BuildContext context)=>NewsCubit(),
+    return MultiBlocProvider(
+      providers: [
+
+        BlocProvider(create:(BuildContext context)=>NewsCubit()..getbusiness()..getSports()..getScience(),)
+      ],
         child: BlocConsumer<NewsCubit,NewsStates>(
         listener: (context,state){},
     builder: (context,state){
           return MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: home_layout(),
               theme: ThemeData(
               scaffoldBackgroundColor: Colors.white,
               appBarTheme: const AppBarTheme(
@@ -77,7 +79,9 @@ class MyApp extends StatelessWidget {
       fontSize: 20,
       fontWeight: FontWeight.w700,
       color: Colors.white,) )
-      ),);
+      ),
+            home: home_layout(),
+          );
     },
     ),
     );
