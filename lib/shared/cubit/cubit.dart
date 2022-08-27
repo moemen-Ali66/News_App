@@ -103,5 +103,10 @@ class NewsCubit extends Cubit<NewsStates>{
       emit(NewsgetScienceErrorStates());
     });
   }
+  bool isdark=false;
+  void Changemode(){
+    isdark = !isdark;
+    emit(ChangeModeStates());
 
+}
 }
