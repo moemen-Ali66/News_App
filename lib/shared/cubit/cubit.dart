@@ -4,6 +4,8 @@ import 'package:news_app/moduels/business/business_screen.dart';
 import 'package:news_app/moduels/science/science_screen.dart';
 import 'package:news_app/moduels/setting/setting_screen.dart';
 import 'package:news_app/moduels/sports/sports_screen.dart';
+import 'package:news_app/network/local/Cache_Helper.dart';
+import 'package:news_app/network/local/Cache_Helper.dart';
 import 'package:news_app/network/remote/dio_helpers.dart';
 import 'package:news_app/shared/cubit/states.dart';
 
@@ -104,9 +106,17 @@ class NewsCubit extends Cubit<NewsStates>{
     });
   }
   bool isdark=false;
-  void Changemode(){
+  void Changemode({bool ? fromshared}){
+    if(fromshared != null){
+      isdark = fromshared;
+
+    }
+    else
     isdark = !isdark;
-    emit(ChangeModeStates());
+    CacheHelper.PutData(Key: 'isdark', value: isdark).then((value)
+    => emit(ChangeModeStates()),
+    );
+
 
 }
 }
