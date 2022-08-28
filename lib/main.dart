@@ -7,23 +7,25 @@ import 'package:news_app/network/remote/dio_helpers.dart';
 import 'package:news_app/shared/cubit/cubit.dart';
 import 'package:news_app/shared/cubit/states.dart';
 import 'home_layout/home_layout.dart';
+import 'network/local/Cache_Helper.dart';
 
-void main() {
-DioHelper.init();
-  runApp(const MyApp());
+void main()async {
+
+  WidgetsFlutterBinding.ensureInitialized();// when fun main is async..
+  DioHelper.init();
+  await CacheHelper.init();
+  bool? isdark=CacheHelper.GetData(Key: 'isdark');
+  runApp( MyApp(isdark!));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final bool isdark;
+  MyApp(this.isdark);
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-
-        BlocProvider(create:(BuildContext context)=>NewsCubit()..getbusiness()..getSports()..getScience(),)
-      ],
-        child: BlocConsumer<NewsCubit,NewsStates>(
+    return BlocProvider(create:(BuildContext context)=>NewsCubit()..getbusiness()..getSports()..getScience()..Changemode(),
+      child: BlocConsumer<NewsCubit,NewsStates>(
         listener: (context,state){},
     builder: (context,state){
           return MaterialApp(
