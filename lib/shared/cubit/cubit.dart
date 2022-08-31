@@ -106,16 +106,18 @@ class NewsCubit extends Cubit<NewsStates>{
     });
   }
   bool isdark=false;
-  void Changemode({bool ? fromshared}){
+  void  Changemode({bool ? fromshared}){
     if(fromshared != null){
       isdark = fromshared;
-
+      emit(ChangeModeStates());
     }
-    else
-    isdark = !isdark;
-    CacheHelper.PutData(Key: 'isdark', value: isdark).then((value)
-    => emit(ChangeModeStates()),
-    );
+    else{
+      isdark = !isdark;
+      CacheHelper.PutData(Key: 'isdark', value: isdark).then((value)
+      => emit(ChangeModeStates()),
+      );
+    }
+
 
 
 }
