@@ -13,7 +13,7 @@ void main()async {
   WidgetsFlutterBinding.ensureInitialized();// when fun main is async..
   DioHelper.init();
   await CacheHelper.init();
-  bool? isdark=CacheHelper.GetData(Key: 'isdark');
+  bool ?isdark=CacheHelper.GetData(Key: "isdark");
   runApp( MyApp(isdark!));
 }
 
@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create:(BuildContext context)=>NewsCubit()..getbusiness()..getSports()..getScience()..Changemode(),
+    return BlocProvider(create:(BuildContext context)=>NewsCubit()..getbusiness()..getSports()..getScience()..Changemode(
+        fromshared: isdark),
       child: BlocConsumer<NewsCubit,NewsStates>(
         listener: (context,state){},
         builder: (context,state){

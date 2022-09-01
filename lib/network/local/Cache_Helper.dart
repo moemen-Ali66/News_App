@@ -12,7 +12,7 @@ class CacheHelper{
 })async{
   return await  sharedPreferences!.setBool(Key, value);
    }
-  static bool? GetData ({
+  static dynamic GetData ({
     required String Key,
   }){
     return sharedPreferences!.getBool(Key);

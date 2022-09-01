@@ -113,8 +113,9 @@ class NewsCubit extends Cubit<NewsStates>{
     }
     else{
       isdark = !isdark;
-      CacheHelper.PutData(Key: 'isdark', value: isdark).then((value)
-      => emit(ChangeModeStates()),
+      CacheHelper.PutData(Key: 'isdark', value: isdark).then((value){
+        emit(ChangeModeStates());
+      }
       );
     }
 
