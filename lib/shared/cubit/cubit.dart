@@ -5,7 +5,6 @@ import 'package:news_app/moduels/science/science_screen.dart';
 import 'package:news_app/moduels/setting/setting_screen.dart';
 import 'package:news_app/moduels/sports/sports_screen.dart';
 import 'package:news_app/network/local/Cache_Helper.dart';
-import 'package:news_app/network/local/Cache_Helper.dart';
 import 'package:news_app/network/remote/dio_helpers.dart';
 import 'package:news_app/shared/cubit/states.dart';
 
@@ -121,5 +120,29 @@ class NewsCubit extends Cubit<NewsStates>{
 
 
 
-}
+  }
+
+  List<dynamic> Search=[];
+  void getSearch(String value)
+  {
+    emit(NewsgetSearchLoadingStates());
+    DioHelper.getData(
+      url: 'v2/everything',
+      query:
+      {
+        'q':'$value',
+        'apiKey':'839f8b514c5644f496f9a60b15c0951f',
+      },
+    ).then((value)
+    {
+      //print(value.data['articles'][0]['title']);
+      Search = value.data['articles'];
+     // print(Search[0]['title']);
+
+      emit(NewsgetSearchSuccessStates());
+    }).catchError((error){
+      print(error.toString());
+      emit(NewsgetSearchErrorStates());
+    });
+  }
 }

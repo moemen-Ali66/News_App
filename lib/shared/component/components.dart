@@ -46,5 +46,40 @@ Widget myDivider()=>Padding(
 
   ),
 );
+Widget default_Form({
+  required TextEditingController control,
+  required TextInputType keyboard,
+  change,
+  onTap,
+
+  required  validate,
+  required String label,
+    hinttext,
+  required Widget icon,
+  IconData? suficon ,
+  suffexpressed,
+  bool ispassword= false ,
+}) => Container(
+  child: TextFormField(
+    onTap: onTap,
+    validator: validate,
+    controller: control,
+    keyboardType: keyboard,
+    onChanged:change,
+    obscureText:ispassword,
+    decoration:   InputDecoration(
+      prefixIcon: icon,
+      suffixIcon: suficon !=null ? IconButton(icon:Icon(suficon,) ,onPressed: suffexpressed,):null,
+      label: Text(label),
+      labelStyle:const TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.w800),
+      hintText: hinttext ,
+      hintStyle: TextStyle(backgroundColor: Colors.white10),
+      border: OutlineInputBorder(),
+    ),
+  ),);
+
 
 

@@ -24,3 +24,8 @@ class NewsgetScienceLoadingStates extends NewsStates{}
 
 class ChangeModeStates extends NewsStates{}
 
+class NewsgetSearchSuccessStates extends NewsStates{}
+
+class NewsgetSearchErrorStates extends NewsStates{}
+
+class NewsgetSearchLoadingStates extends NewsStates{}

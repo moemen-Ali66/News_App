@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/moduels/web_view/WebViewScreen.dart';
 import 'package:news_app/network/remote/dio_helpers.dart';
 import 'package:news_app/shared/component/components.dart';
 import 'package:news_app/shared/cubit/cubit.dart';
@@ -11,7 +12,7 @@ class SportsScreen extends StatelessWidget {
   const SportsScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
     return Scaffold(
       body:BlocConsumer<NewsCubit,NewsStates>(
         listener: (context,state){},
@@ -19,7 +20,7 @@ class SportsScreen extends StatelessWidget {
           var cubit= NewsCubit.get(context);
           dynamic list= NewsCubit.get(context).Sports;
           return ConditionalBuilder(
-            condition: true,
+            condition: cubit.curentindex>0,
             builder:(context)=>ListView.separated(
                 physics: BouncingScrollPhysics(),
                 itemBuilder:(context,index){
