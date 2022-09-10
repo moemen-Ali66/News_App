@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/moduels/web_view/WebViewScreen.dart';
 Widget buildItem(articles,context)=> InkWell(
-  // onTap: (){
-  //   Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewScreen(articles['url'])));
-  // },
+  onTap: (){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewScreen(articles['url'])));
+  },
   child:   Padding(
 
     padding:  EdgeInsets.all(10.0),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:news_app/network/remote/dio_helpers.dart';
+import 'package:news_app/shared/Style/Themes.dart';
 import 'package:news_app/shared/cubit/cubit.dart';
 import 'package:news_app/shared/cubit/states.dart';
 import 'home_layout/home_layout.dart';
@@ -31,59 +32,9 @@ class MyApp extends StatelessWidget {
         builder: (context,state){
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.deepOrange,
-                scaffoldBackgroundColor: Colors.white,
-                appBarTheme: const AppBarTheme(
-                  color: Colors.white,
-                  elevation: 0.0,
-                  titleTextStyle:TextStyle(color: Colors.black,fontWeight:FontWeight.bold,fontSize: 20) ,
-                  systemOverlayStyle:SystemUiOverlayStyle(
-                    statusBarColor: Colors.white,
-                    statusBarIconBrightness:Brightness.dark,
-                  ) ,
-                  iconTheme:IconThemeData(color: Colors.black ),
-                ),
-                bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                  type:BottomNavigationBarType.fixed ,
-                  selectedItemColor: Colors.deepOrange,
-                  unselectedItemColor: Colors.grey,
-                  backgroundColor:Colors.white,
-                ),
-                textTheme:TextTheme(
-                    bodyText1: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,)
-
-                )
-            ) ,
+            theme: lightTheme ,
             themeMode:NewsCubit.get(context).isdark? ThemeMode.dark:ThemeMode.light,
-            darkTheme: ThemeData(
-                primarySwatch: Colors.deepOrange,
-                scaffoldBackgroundColor: HexColor("#333739"),
-                appBarTheme:  AppBarTheme(
-                  color: HexColor("#333739"),
-                  elevation: 0.0,
-                  titleTextStyle:TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize: 20) ,
-                  systemOverlayStyle:SystemUiOverlayStyle(
-                    statusBarColor: Colors.black,
-                    statusBarIconBrightness:Brightness.light,
-                  ) ,
-                  iconTheme:IconThemeData(color: Colors.white ),
-                ),
-                bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                  type:BottomNavigationBarType.fixed ,
-                  selectedItemColor: Colors.deepOrange,
-                  unselectedItemColor: Colors.grey,
-                  backgroundColor:HexColor("#333739"),
-                ),
-                textTheme:TextTheme(
-                    bodyText1: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,) )
-            ),
+            darkTheme: darkTheme,
             home: home_layout(),
           );
         },
