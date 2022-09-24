@@ -1,12 +1,12 @@
+import 'package:My_News/moduels/business/business_screen.dart';
+import 'package:My_News/moduels/science/science_screen.dart';
+import 'package:My_News/moduels/setting/setting_screen.dart';
+import 'package:My_News/moduels/sports/sports_screen.dart';
+import 'package:My_News/network/local/Cache_Helper.dart';
+import 'package:My_News/network/remote/dio_helpers.dart';
+import 'package:My_News/shared/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/moduels/business/business_screen.dart';
-import 'package:news_app/moduels/science/science_screen.dart';
-import 'package:news_app/moduels/setting/setting_screen.dart';
-import 'package:news_app/moduels/sports/sports_screen.dart';
-import 'package:news_app/network/local/Cache_Helper.dart';
-import 'package:news_app/network/remote/dio_helpers.dart';
-import 'package:news_app/shared/cubit/states.dart';
 
 class NewsCubit extends Cubit<NewsStates>{
   NewsCubit() :super(NewsIntialStates());

@@ -1,5 +1,5 @@
+import 'package:My_News/moduels/web_view/WebViewScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/moduels/web_view/WebViewScreen.dart';
 Widget buildItem(articles,context)=> InkWell(
   onTap: (){
     Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewScreen(articles['url'])));

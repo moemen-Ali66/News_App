@@ -1,12 +1,13 @@
+import 'package:My_News/network/remote/dio_helpers.dart';
+import 'package:My_News/shared/Style/Themes.dart';
+import 'package:My_News/shared/cubit/cubit.dart';
+import 'package:My_News/shared/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:news_app/network/remote/dio_helpers.dart';
-import 'package:news_app/shared/Style/Themes.dart';
-import 'package:news_app/shared/cubit/cubit.dart';
-import 'package:news_app/shared/cubit/states.dart';
 import 'home_layout/home_layout.dart';
+import 'moduels/SplashScreen/SplashScreen.dart';
 import 'network/local/Cache_Helper.dart';
 void main()async {
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             theme: lightTheme ,
             themeMode:NewsCubit.get(context).isdark? ThemeMode.dark:ThemeMode.light,
             darkTheme: darkTheme,
-            home: home_layout(),
+            home: SplashPage(),
           );
         },
       ),

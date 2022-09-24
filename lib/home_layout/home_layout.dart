@@ -1,8 +1,8 @@
+import 'package:My_News/moduels/Search/Search_Screen.dart';
+import 'package:My_News/shared/cubit/cubit.dart';
+import 'package:My_News/shared/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/moduels/Search/Search_Screen.dart';
-import 'package:news_app/shared/cubit/cubit.dart';
-import 'package:news_app/shared/cubit/states.dart';
 class home_layout extends StatelessWidget {
   const home_layout({Key? key}) : super(key: key);
 
